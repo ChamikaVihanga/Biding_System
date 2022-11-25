@@ -1,4 +1,34 @@
-﻿
+﻿/** {
+    box-sizing: border-box
+}
+.fcolor{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:brown;
+}
+*/
+/*img {
+    opacity: 0.5;
+    width: 900px;
+    height: 300Px;
+    vertical-align: middle;
+}*/
+
+/** {
+    box-sizing: border-box
+}
+
+.mySlides {
+    display: none
+}
+
+img {
+    
+    vertical-align: middle;
+    opacity:1;
+    height:400px
+}*/
+
+
 body, html {
     height: 100%;
     margin: 0;
@@ -15,13 +45,11 @@ body, html {
     background-size: cover;
 }
 
-.bgimg-1 {
-    background-image: url("img_parallax.jpg");
-    min-height: 100%;
+.bagpic-1{
+    opacity:0.7;
 }
 
 .bgimg-2 {
-    background-image: url("img_parallax2.jpg");
     min-height: 400px;
 }
 
@@ -39,13 +67,27 @@ body, html {
     color: #000;
 }
 
-    .caption span.border {
-        background-color: #111;
-        color: #fff;
+    .caption span {
+        background-color: none;
+        color: black;
         padding: 18px;
-        font-size: 25px;
+        font-size: 50px;
         letter-spacing: 10px;
+        font-family:'Anton', sans-serif;
+        
+        
     }
+
+.ConverFont {
+    background-color: #111;
+    color: #fff;
+    position: 20%, 20%;
+    font-family: 'Anton', sans-serif;
+   /* color: black;*/
+    padding: 1px;
+    font-size: 50px;
+    letter-spacing: 10px;
+}
 
 h3 {
     letter-spacing: 5px;
@@ -59,4 +101,15 @@ h3 {
     .bgimg-1, .bgimg-2, .bgimg-3 {
         background-attachment: scroll;
     }
+}
+
+.time {
+    text-align: center;
+    font-size: 60px;
+    margin-top: 0px;
+    color:darkred
+}
+
+h2{
+    color:gold
 }
