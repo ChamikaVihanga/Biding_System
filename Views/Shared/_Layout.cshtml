@@ -9,22 +9,27 @@
     <link rel="stylesheet" href="~/SampleBid2.styles.css" asp-append-version="true" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="~/css/MenuI.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/SideNav.css" asp-append-version="true" />   
+    <link rel="stylesheet" href="~/css/SideNav.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Home.css" asp-append-version="true" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/css/Buttion.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="~/css/MainFooter.css" asp-append-version="true" />
+
 </head>
 
+
+
 <body>
-    <header>
+    <header style="position:">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
 
             <div id="mySidenav" class="sidenav">
-              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <hr />
-                <hr />
-                <hr />
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <a class="nav-link" asp-area="" asp-controller="Teams" asp-action="Index">Teams</a>
                 <a class="nav-link" asp-area="" asp-controller="Trophies" asp-action="Index">Trophy</a>
                 <a class="nav-link" asp-area="" asp-controller="Players" asp-action="Index">Player</a>
@@ -44,6 +49,7 @@
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
@@ -58,25 +64,20 @@
             </div>
         </nav>
     </header>
-    
+
     <div>
-        
-        <main role="main" class="pb-3">
+
+        <main role="main" class="pb-3" id="main">
             @RenderBody()
         </main>
-        
+
     </div>
-    
 
 
-    @*<footer class="text-center border-top footer text-muted">
-              
-        <p>
-            Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">E-Teck</a>
-        </p>
-    </footer>*@
 
-   <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
@@ -87,7 +88,7 @@
             document.getElementById("mySidenav").style.width = "250px";
             document.getElementById("main").style.marginLeft = "250px";
             document.body.style.backgroundColor = "rgba(0,0,0,0.50)";
-           
+
         }
 
         function closeNav() {
@@ -96,5 +97,29 @@
             document.body.style.backgroundColor = "white";
         }
     </script>
+   
 </body>
+<footer>
+    <div style="text-align:center;">
+
+
+        <br />
+        <hr />
+
+        <h3>ABOUT E SPORTS AUCTION</h3>
+        <p class="container">
+            Each tournament Manager knows that it is so difficult to figure out piles of entry forms, make the draws out of it and matches to have an incredible tournament. E Sports Auction is intended to deal with a competition and gives you useful, and proficient abilities. E sports Auction offers loads of functionalities with unmatched exactness and proficiency. E sports Auction is made of sports like Cricket.
+        </p>
+        <p>
+            Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">E-Teck</a>
+        </p>
+
+       
+            <i class='fab fa-facebook' style='font-size:36px'></i>
+            <i class='fab fa-github' style='font-size:36px'></i>
+            <i class='fab fa-youtube' style='font-size:36px'></i>
+        
+    </div>
+</footer>
 </html>
+

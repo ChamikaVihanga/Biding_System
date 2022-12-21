@@ -26,6 +26,7 @@
                 <label asp-for="PlayerId" class="control-label"></label>
                 <select asp-for="PlayerId" class ="form-control" asp-items="ViewBag.PlayerId"></select>
             </div>
+            <br />
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -34,7 +35,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index"> <i class="btn"></i>Back to List</a>
 </div>
 
 @section Scripts {

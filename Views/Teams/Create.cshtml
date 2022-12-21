@@ -3,36 +3,42 @@
 @{
     ViewData["Title"] = "Create";
 }
+<div class="container">
 
-<h1>Create</h1>
 
-<h4>Team</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="TeamName" class="control-label"></label>
-                <input asp-for="TeamName" class="form-control" />
-                <span asp-validation-for="TeamName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Budget" class="control-label"></label>
-                <input asp-for="Budget" class="form-control" />
-                <span asp-validation-for="Budget" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+    <h1 style="text-align:center;"> Team Create</h1>
+
+    <div class="row container">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="TeamName" class="control-label"></label>
+                    <input asp-for="TeamName" class="form-control" />
+                    <span asp-validation-for="TeamName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Budget" class="control-label"></label>
+                    <input asp-for="Budget" class="form-control" />
+                    <span asp-validation-for="Budget" class="text-danger"></span>
+                </div>
+
+                <br />
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
+    <hr />
+    <div>
+        <a class="btn btn-success" asp-action="Index"> <i class="fa fa-step-backward"></i>  Back to List</a>
+        
+    </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
