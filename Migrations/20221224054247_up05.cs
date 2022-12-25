@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SampleBid2.Migrations
 {
-    public partial class db001 : Migration
+    public partial class up05 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -54,7 +54,9 @@ namespace SampleBid2.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ManagerName = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    ManagerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ContectNo = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -189,9 +191,11 @@ namespace SampleBid2.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     PlayerName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PerFormance = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CotractNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BacePrice = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Sold = table.Column<bool>(type: "bit", nullable: false),
-                    TeamId = table.Column<int>(type: "int", nullable: false)
+                    TeamId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -200,8 +204,7 @@ namespace SampleBid2.Migrations
                         name: "FK_players_Teams_TeamId",
                         column: x => x.TeamId,
                         principalTable: "Teams",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(

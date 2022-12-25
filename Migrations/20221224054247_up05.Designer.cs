@@ -12,14 +12,14 @@ using SampleBid2.Data;
 namespace SampleBid2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221122093822_db002")]
-    partial class db002
+    [Migration("20221224054247_up05")]
+    partial class up05
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.9")
+                .HasAnnotation("ProductVersion", "6.0.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -284,15 +284,15 @@ namespace SampleBid2.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("BacePrice")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CotractNo")
-                        .HasColumnType("int");
+                    b.Property<string>("CotractNo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PerFormance")
                         .IsRequired()
@@ -305,7 +305,7 @@ namespace SampleBid2.Migrations
                     b.Property<bool>("Sold")
                         .HasColumnType("bit");
 
-                    b.Property<int>("TeamId")
+                    b.Property<int?>("TeamId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -431,9 +431,7 @@ namespace SampleBid2.Migrations
                 {
                     b.HasOne("SampleBid2.Models.Team", "Team")
                         .WithMany("Players")
-                        .HasForeignKey("TeamId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TeamId");
 
                     b.Navigation("Team");
                 });

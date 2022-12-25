@@ -3,26 +3,28 @@
 @{
     ViewData["Title"] = "Index";
 }
+<div class="container">
 
-<h1>Index</h1>
+<h1 style="text-align:center"> Trophies </h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
+
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.TropName)
+                @Html.DisplayNameFor(model => model.Trop_Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.dateTime)
+                @Html.DisplayNameFor(model => model.StartDate)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Duration)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Team)
+                @Html.DisplayNameFor(model => model.Team.TeamName)
             </th>
             <th></th>
         </tr>
@@ -31,23 +33,25 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.TropName)
+                @Html.DisplayFor(modelItem => item.Trop_Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.dateTime)
+                @Html.DisplayFor(modelItem => item.StartDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Duration)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Team.Id)
+                @Html.DisplayFor(modelItem => item.Team.TeamName)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        <a asp-action="Edit" asp-route-id="@item.Id"><i class="btn fa fa-edit btn-warning "> </i></a> |
+                        <a asp-action="Details" asp-route-id="@item.Id"><i class="btn fa fa-folder  btn-primary"> </i></a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id"> <i class="btn fa fa-trash  btn-danger"> </i> </a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+</div>

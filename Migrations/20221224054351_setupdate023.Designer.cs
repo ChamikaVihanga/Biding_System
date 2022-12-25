@@ -12,14 +12,14 @@ using SampleBid2.Data;
 namespace SampleBid2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221122092636_db001")]
-    partial class db001
+    [Migration("20221224054351_setupdate023")]
+    partial class setupdate023
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.9")
+                .HasAnnotation("ProductVersion", "6.0.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -259,6 +259,13 @@ namespace SampleBid2.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ContectNo")
+                        .HasColumnType("int");
+
                     b.Property<string>("ManagerName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -276,7 +283,14 @@ namespace SampleBid2.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("BacePrice")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CotractNo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -291,7 +305,7 @@ namespace SampleBid2.Migrations
                     b.Property<bool>("Sold")
                         .HasColumnType("bit");
 
-                    b.Property<int>("TeamId")
+                    b.Property<int?>("TeamId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -417,9 +431,7 @@ namespace SampleBid2.Migrations
                 {
                     b.HasOne("SampleBid2.Models.Team", "Team")
                         .WithMany("Players")
-                        .HasForeignKey("TeamId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TeamId");
 
                     b.Navigation("Team");
                 });

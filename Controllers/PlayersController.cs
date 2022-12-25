@@ -48,7 +48,7 @@ namespace SampleBid2.Controllers
         // GET: Players/Create
         public IActionResult Create()
         {
-            ViewData["TeamId"] = new SelectList(_context.Teams, "Id", "Id");
+            ViewData["TeamId"] = new SelectList(_context.Teams, "Id", "TeamName");
             return View();
         }
 

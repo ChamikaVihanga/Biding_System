@@ -48,7 +48,7 @@ namespace SampleBid2.Controllers
         // GET: Trophies/Create
         public IActionResult Create()
         {
-            ViewData["TeamId"] = new SelectList(_context.Teams, "Id", "Id");
+            ViewData["TeamId"] = new SelectList(_context.Teams, "Id", "TeamName");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace SampleBid2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,TropName,dateTime,Duration,TeamId")] Trophy trophy)
+        public async Task<IActionResult> Create([Bind("Id,Trop_Name,StartDate,Duration,TeamId")] Trophy trophy)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace SampleBid2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,TropName,dateTime,Duration,TeamId")] Trophy trophy)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Trop_Name,StartDate,Duration,TeamId")] Trophy trophy)
         {
             if (id != trophy.Id)
             {
